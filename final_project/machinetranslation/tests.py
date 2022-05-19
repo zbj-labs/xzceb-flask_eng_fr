@@ -1,18 +1,18 @@
 import unittest
 
-from translator import englishToFrench, frenchToEnglish
+from translator import english_to_french, french_to_english
 
 class TestE2F(unittest.TestCase):
     def test1(self):
-        self.assertEqual(englishToFrench(None), None, 'None should return None')
-        self.assertEqual(englishToFrench("Hello"), "Bonjour", "Hello should be translated to Bonjour")
-        self.assertEqual(englishToFrench("Goodbye"), "Au revoir", "Goodbye should be translated to Au revoir")
+        self.assertEqual(english_to_french(None), None, 'None should return None')
+        self.assertEqual(english_to_french("Hello"), "Bonjour", "Hello should be translated to Bonjour")
+        self.assertEqual(english_to_french("Goodbye"), "Au revoir", "Goodbye should be translated to Au revoir")
 
 class TestF2E(unittest.TestCase):
     def test1(self):
-        self.assertEqual(frenchToEnglish(None), None, 'None should return None')
-        self.assertEqual(frenchToEnglish("Bonjour"), "Hello", "Bonjour should be translated to Hello")
-        self.assertEqual(frenchToEnglish("Au revoir"), "Goodbye", "Au revoir should be translated to Goodbye")
+        self.assertEqual(french_to_english(None), None, 'None should return None')
+        self.assertEqual(french_to_english("Bonjour"), "Hello", "Bonjour should be translated to Hello")
+        self.assertEqual(french_to_english("Au revoir"), "Goodbye", "Au revoir should be translated to Goodbye")
 
 unittest.main()
 

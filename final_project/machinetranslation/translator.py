@@ -1,45 +1,44 @@
-import json
-from ibm_watson import LanguageTranslatorV3
-from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 import os
 from dotenv import load_dotenv
+from ibm_watson import LanguageTranslatorV3
+from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
 load_dotenv()
 
-apikey = os.environ['apikey']
+api_key = os.environ['apikey']
 url = os.environ['url']
 
-authenticator = IAMAuthenticator(apikey)
+authenticator = IAMAuthenticator(api_key)
 language_translator = LanguageTranslatorV3(
     version='2018-05-01',
     authenticator=authenticator)
 
 language_translator.set_service_url(url)
 
-def englishToFrench(englishText):
+def english_to_french(english_text):
     """
     translate the text input in english to french and return the french text
     """
     try:
         translation = language_translator.translate(
-            text=englishText,
+            text=english_text,
             model_id='en-fr').get_result()
-        frenchText = translation['translations'][0]['translation']
+        french_text = translation['translations'][0]['translation']
     except:
-        frenchText = None
+        french_text = None
 
-    return frenchText
+    return french_text
 
-def frenchToEnglish(frenchText):
+def french_to_english(french_text):
     """
     translate the text input in french to english and return the english text
     """
     try:
         translation = language_translator.translate(
-            text=frenchText,
+            text=french_text,
             model_id='fr-en').get_result()
-        englishText = translation['translations'][0]['translation']
+        english_text = translation['translations'][0]['translation']
     except:
-        englishText = None
+        english_text = None
 
-    return englishText
+    return english_text
