@@ -16,7 +16,7 @@ language_translator = LanguageTranslatorV3(
 
 language_translator.set_service_url(url)
 
-def englishToFrech(englishText):
+def englishToFrench(englishText):
     """
     translate the text input in english to french and return the french text
     """
