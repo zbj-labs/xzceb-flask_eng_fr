@@ -20,18 +20,26 @@ def englishToFrench(englishText):
     """
     translate the text input in english to french and return the french text
     """
-    translation = language_translator.translate(
-        text=englishText,
-        model_id='en-fr').get_result()
-    frenchText = translation['translations'][0]['translation']
+    try:
+        translation = language_translator.translate(
+            text=englishText,
+            model_id='en-fr').get_result()
+        frenchText = translation['translations'][0]['translation']
+    except:
+        frenchText = None
+
     return frenchText
 
 def frenchToEnglish(frenchText):
     """
     translate the text input in french to english and return the english text
     """
-    translation = language_translator.translate(
-        text=frenchText,
-        model_id='fr-en').get_result()
-    englishText = translation['translations'][0]['translation']
+    try:
+        translation = language_translator.translate(
+            text=frenchText,
+            model_id='fr-en').get_result()
+        englishText = translation['translations'][0]['translation']
+    except:
+        englishText = None
+
     return englishText
