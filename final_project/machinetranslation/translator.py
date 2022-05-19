@@ -13,3 +13,14 @@ authenticator = IAMAuthenticator(apikey)
 language_translator = LanguageTranslatorV3(authenticator=authenticator)
 
 language_translator.set_service_url(url)
+
+def englishToFrech(englishText):
+    """
+    translate the text input in english to french and return the french text
+    """
+    translation = language_translator.translate(
+        text=englishText,
+        model_id='en-fr').get_result()
+    frenchText = translation['translations'][0]['translation']
+    return frenchText
+
