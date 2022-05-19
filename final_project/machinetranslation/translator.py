@@ -24,3 +24,12 @@ def englishToFrech(englishText):
     frenchText = translation['translations'][0]['translation']
     return frenchText
 
+def frenchToEnglish(frenchText):
+    """
+    translate the text input in french to english and return the english text
+    """
+    translation = language_translator.translate(
+        text=frenchText,
+        model_id='fr-en').get_result()
+    englishText = translation['translations'][0]['translation']
+    return englishText
