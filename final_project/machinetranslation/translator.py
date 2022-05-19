@@ -1,3 +1,7 @@
+"""
+    Uses IBM Watson's Language Translator to translate text
+    from English to French and vice-versa.
+"""
 import os
 from dotenv import load_dotenv
 from ibm_watson import LanguageTranslatorV3
